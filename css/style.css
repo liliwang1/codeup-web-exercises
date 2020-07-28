@@ -1,5 +1,75 @@
-
-.fancy-header {
-    color: purple;
+#Top {
+    text-align: center;
     text-decoration: underline;
+    color: rgb(128, 128, 128);
+}
+
+h3 {
+    text-decoration: underline;
+    color: rgb(128, 128, 128);
+}
+/*body {*/
+/*    background-color: lightgrey;*/
+/*}*/
+
+body {
+    background-image: url("../image/norwegian_rose_@2X.png") ;
+    background-repeat: repeat;
+    background-position: top;
+    font-family: 'Gamja Flower', cursive;;
+    font-size: 1em;
+}
+
+/*:not(section) {*/
+/*    background-image: url("../image/norwegian_rose.png");*/
+/*}*/
+
+ul {
+    list-style: circle;
+}
+
+ol {
+    list-style: upper-roman;
+}
+
+table {
+    width: 600px;
+    border-collapse: collapse;
+    border: 1px solid black;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+th,td {
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+}
+
+th[scope="col"] {
+    background: #ccc;
+}
+
+tr:nth-child(even) {
+    background: #eee;
+}
+
+tr:nth-child(odd) {
+    background: #ddd;
+}
+
+a:link {
+    color: blue;
+}
+a:visited {
+    color: black;
+}
+a:hover {
+    color: red;
+    font-size: 1.5em;
+}
+a:active {
+    color: green;
 }

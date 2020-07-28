@@ -1,0 +1,73 @@
+/*:root {*/
+/*    --bg-info-color:*/
+/*    --bg-success-color:*/
+/*    --bg-warning-color:*/
+/*    --bg-error-color:*/
+/*    --text-info-color:*/
+/*    --text-success-color:*/
+/*    --text-warning-color:*/
+/*    --text-error-color:*/
+/*}*/
+
+/*.message-info {*/
+/*    background-color: var(--bg-info-color);*/
+/*    color: var(--text-info-color);*/
+/*}*/
+
+/*.message-success {*/
+/*    background-color: var(--bg-success-color);*/
+/*    color: var(--text-success-color);*/
+/*}*/
+
+/*.message-warning {*/
+/*    background-color: var(--bg-warning-color);*/
+/*    color: var(--text-warning-color);*/
+/*}*/
+
+/*.message-error {*/
+/*    background-color: var(--bg-error-color);*/
+/*    color: var(--text-error-color);*/
+/*}*/
+
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+
+.message {
+    padding: 0.5em;
+    border: 1px solid lightgrey;
+    width: 100%;
+    margin: 0.5em;
+    border-radius:10px ;
+}
+
+.message-info {
+    background-color: rgb(205 222 254);
+    color: rgb(71 66 157);
+}
+
+.message-success {
+    background-color: rgb(204 241 217);
+    color: rgb(45 129 83);
+}
+
+.message-warning {
+    background-color: rgb(252 251 203);
+    color: rgb(158 140 61);
+}
+
+.message-error {
+    background-color: rgb(251 211 214);
+    color: rgb(149 53 73);
+}
+/*:root {*/
+/*    --main-bg-color: brown;*/
+/*}*/
+
+/*element {*/
+/*    background-color: var(--main-bg-color);*/
+/*}*/
