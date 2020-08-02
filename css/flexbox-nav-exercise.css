@@ -1,9 +1,7 @@
 html {
-    box-sizing: border-box
-}
-
-ul {
-    list-style: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 nav {
@@ -13,9 +11,10 @@ nav {
     align-items: center;
 }
 
-.text-link {
+ul {
+    list-style: none;
     font-family: 'Work Sans', sans-serif;
-    margin: auto;
+    /*margin: auto;*/
     padding: 0;
     display: flex;
     align-items: center;
@@ -25,11 +24,20 @@ nav {
 .logo-link {
     font-family: 'Montserrat', sans-serif;
     padding: 0.2em 0;
-    width: 3em;
+    font-size: 3em;
+    /*position: absolute;*/
+    /*left: 50px;*/
 }
 
-.logo-link {
-    font-size: 1.5em;
+.follow-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.icons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 6em;
 }
 
 li {
