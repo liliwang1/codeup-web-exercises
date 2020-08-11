@@ -1,4 +1,5 @@
 "use strict";
+
 console.log("Hello from external JavaScript");
 alert("Welcome to my Website!");
 var userInput = prompt("What's your favorite color?");
@@ -12,6 +13,10 @@ var pricePerDay = prompt("How much is the price for a movie per day?");
 // console.log(theLittleMermaid+brotherBear+hercules);
 // console.log(Number(theLittleMermaid));
 alert("The price you have to pay for all movies is $" + (Number(theLittleMermaid) + Number(brotherBear) + Number(hercules)) * Number(pricePerDay));
+// instead of using Number(), just put a + in front of the string value, that would convert then into a number.
+//alert((+theLittleMermaid + +brotherBear + +hercules)*3);
+// also works: alert(3*theLittleMermaid + 3*brotherBear + 3*hercules) the * convert the string to a number.
+// alert(theLittleMermaid*3 + brotherBear*3 + hercules*3) works too.
 
 var payRateGoogle = prompt("How much does Google pay per hour?");
 var payRateAmazon = prompt("How much does Amazon pay per hour?");
@@ -24,6 +29,7 @@ var confirmed = confirm('Are you sure you worked ' + workHoursGoogle + ' hours f
 var confirmed1 = confirm('Are you sure you worked ' + workHoursAmazon + ' hours for Amazon for ' + payRateAmazon + ' per hour?');
 var confirmed2 = confirm('Are you sure you worked ' + workHoursFacebook + ' hours for Facebook for ' + payRateFacebook + ' per hour?');
 alert("Your payment this week should be $" + payment);
+alert(+payRateGoogle * +workHoursGoogle); // this is the unary operator method.
 
 var classFullness = confirm("Is the class full?");
 console.log(classFullness);
