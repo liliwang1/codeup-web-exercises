@@ -127,6 +127,14 @@ function checkIfGameIsOver(numberOfLives1) {
     }
 }
 checkIfGameIsOver(numberOfLives1);
+//refactor to ternary operator:
+function checkIfGameIsOver1(numberOfLives2) {
+   (numberOfLives2 === 0) ? alert("Sorry, game over") : alert
+   ("Next Level!");
+}
+checkIfGameIsOver1();
+// another way to present it:
+alert((numberOfLives2 === 0) ? "sorry game over" : "next level")
 
 //TODO: Write an if statement that alerts "It's snowing!" if weather is equal to "snowing", else alert "Check back later for more details!"
 var weather1 = "snowing";
@@ -245,7 +253,7 @@ if (age >= 15) {
 } else {
     alert("not eligible for a learners permit");
 }
-//refactor to a function:
+//refactor to a function: notice eligibility(age = 0, hasPermit = false) part, default parameter.
 function eligibility(age = 0, hasPermit = false) {
    if (age < 15) {
        alert("not eligible for a learners permit");
@@ -260,10 +268,11 @@ function eligibility(age = 0, hasPermit = false) {
    }
 }
 age = prompt("how old are you?");
-hasPermit = prompt("do you have a permit?")
-eligibility(); // need more work
+hasPermit = confirm("do you have a permit?")
+eligibility(age, hasPermit); // need more work
 
 // ================ TERNARY STATEMENT ================
+// (condition) ? if body here : else body here;
 //TODO Together: Regular way - rewrite as ternary
 
 var message;
@@ -277,53 +286,122 @@ if (success) {
 console.log(message);
 
 //WRITE YOUR TERNARY STATEMENT HERE!
+(success) ? message = "Operation was successful." : message = "Oops, something went wrong.";
+console.log(message);
+// another way to refactor to a ternary operator.!!!
+var message1 = (success) ? "operation was successful." : "oops something went wrong"
+console.log(message1);
+// null can be put at the action here to indicate no value
+var message2 = (success) ? "successful" : null;
 
 
 //TODO: Refactor the following conditional as a ternary
 
-// var weather = "sunny";
-// var weatherMessage;
+var weather = "sunny";
+var weatherMessage;
 
-// if(weather === "rainy"){
-//    weatherMessage = "It's raining!";
-// } else {
-//     weatherMessage = "Have a nice day!";
-// }
-// console.log(weatherMessage);
+if(weather === "rainy"){
+   weatherMessage = "It's raining!";
+} else {
+    weatherMessage = "Have a nice day!";
+}
+console.log(weatherMessage);
 
 //WRITE YOUR TERNARY STATEMENT HERE!
-
-
+weatherMessage = (weather === "rainy") ? "It's raining!" : "Have a nice day!";
+console.log(weatherMessage);
 
 // =============== SWITCH STATEMENT ================
 //TODO Together:
 
-// var pizzaPreference = prompt("What kind of pizza do you like?");
-// console.log("User pizza input: " + pizzaPreference);
-//
-// if (pizzaPreference === "pineapple and hot sauce") {
-//     alert("What a coincidence, that's my favorite!");
-// } else if (pizzaPreference === "cheese") {
-//     alert("Just plain cheese? Okay...");
-// } else if (pizzaPreference === "ham") {
-//     alert("Ham is easy to spell and awesome!");
-// } else {
-//     alert(pizzaPreference + " isn't my favorite, but let's order some!");
-// }
+var pizzaPreference = prompt("What kind of pizza do you like?");
+console.log("User pizza input: " + pizzaPreference);
 
-
-
+if (pizzaPreference === "pineapple and hot sauce") {
+    alert("What a coincidence, that's my favorite!");
+} else if (pizzaPreference === "cheese") {
+    alert("Just plain cheese? Okay...");
+} else if (pizzaPreference === "ham") {
+    alert("Ham is easy to spell and awesome!");
+} else {
+    alert(pizzaPreference + " isn't my favorite, but let's order some!");
+}
+// refactor to switch statement:
+switch(pizzaPreference) {
+    case "pineapple and hot sauce":
+        alert("What a coincidence, that's my favorite!");
+        break;
+    case "cheese":
+        alert("Just plain cheese? Okay...");
+        break;
+    default:
+        alert(pizzaPreference + " isn't my favorite, but let's order some!");
+        break;
+}
+// using return in a function instead of using break, return also break out of the statement
+function orderPizza(pizzaPreference) {
+switch(pizzaPreference) {
+    case "pineapple and hot sauce":
+        return alert("What a coincidence, that's my favorite!");
+    case "cheese":
+        return alert("Just plain cheese? Okay...");
+    default:
+        return alert(pizzaPreference + " isn't my favorite, but let's order some!");
+}
+}
+orderPizza("ham");
 
 //TODO: Write a switch statement that evaluates weather as the condition. Check for "rainy", "sunny", "snow", and a default case.
-
+var weatherMessage3;
+var weather3 = "rainy";
+switch(weather3) {
+    case "rainy":
+        weatherMessage3 = "It's rainy";
+        break;
+    case "sunny":
+        weatherMessage3 = "It's sunny";
+        break;
+    case "snow":
+        weatherMessage3 = "It's snowing";
+        break;
+    default:
+        weatherMessage3 = "come back for more info";
+}
 
 //TODO: Rewrite the intersection function from earlier as a switch statement.
+var trafficMessage;
+var trafficLight = "red";
+switch (trafficLight) {
+    case "red":
+        trafficMessage = "stop";
+        break;
+    case "green":
+        trafficMessage = "proceed";
+        break;
+    case "yellow":
+        trafficMessage = "proceed with caution";
+        break;
+    default:
+        trafficMessage = "light is broken";
+        break;
+}
 
-
+trafficMessage = function(trafficLight) {
+    switch (trafficLight) {
+        case "red":
+            return "stop";
+        case "green":
+            return"proceed";
+        case "yellow":
+            return "proceed with caution";
+        default:
+            return"light is broken";
+    }
+} // not working right now, need more work
 
 // ================ REVERSE ENGINEERING =================
 // Visit each of these links; outline the steps required to achieve each of these demonstrations. You can write code or just write the logic steps that would achieve each output
-
+//!!!
 
 // 1) https://mdn.github.io/learning-area/javascript/building-blocks/allowance-updater.html
 
