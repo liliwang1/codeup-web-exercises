@@ -165,7 +165,7 @@ alert("Your lucky number is " + luckyNumber + ". \ " +
 if (confirm("Do you want put a number?")) {
     var userNumber = Number(prompt("your number is : "));
     if (typeof userNumber === "number") {
-
+// if (!isNaN(userNumber))
         if (userNumber % 2 === 0) {
             alert("your input is an even number.");
         } else {
