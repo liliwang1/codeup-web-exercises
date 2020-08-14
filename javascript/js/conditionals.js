@@ -28,7 +28,7 @@ function analyzeColor(color) {
         return "I don't know anything about " + color;
     }
 }
-console.log(analyzeColor());
+console.log(analyzeColor('white'));
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -42,22 +42,24 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 console.log(analyzeColor(randomColor));
+console.log("your random color is: " + randomColor + '\n' + analyzeColor(randomColor));
+
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
 function analyzeColor1(color) {
-    switch (color) {
+    switch (color.toLowerCase()) {
         case "blue":
             return "blue is the color of the sky";
-            break;
         case "red":
             return "Strawberries are red";
-            break;
         default:
             return "I don't know anything about " + color;
     }
 }
+analyzeColor1(randomColor);
+console.log(analyzeColor1(randomColor));
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
@@ -65,7 +67,9 @@ function analyzeColor1(color) {
  * function to show it to the user.
  */
 var userColor = prompt("type a color:");
+var userColor = prompt("type a color:").toLowerCase();
 alert(analyzeColor(userColor));
+alert(analyzeColor1(userColor));
 /* ########################################################################## */
 
 /**
@@ -87,26 +91,29 @@ alert(analyzeColor(userColor));
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+var luckyNumber1 = Math.floor(Math.random() * 5);
+console.log(luckyNumber1);
+var totalAmount1 = Number(prompt("what's your toal amount?"));
+console.log(totalAmount1);
 function calculateTotal(luckynumber, totalamount){
     switch (luckynumber) {
         case 1:
             return totalamount - totalamount * 0.1;
-            break;
         case 2:
             return totalamount - totalamount * 0.25;
-            break;
         case 3:
             return totalamount - totalamount * 0.35;
-            break;
         case 4:
             return totalamount * 0.5;
-            break;
         case 5:
             return 0;
         default:
             return totalamount;
     }
 }
+calculateTotal(luckyNumber1, totalAmount1);
+// console.log("your total amount is $" + calculateTotal(luckyNumber1, totalAmount1));
+
 function calculateTotal1(Luckynumber, Totalamount) {
     if (Luckynumber === 1) {
         return Totalamount - Totalamount * 0.1;
@@ -122,6 +129,9 @@ function calculateTotal1(Luckynumber, Totalamount) {
         return Totalamount;
     }
 }
+calculateTotal1(luckyNumber1, totalAmount1);
+// console.log("your total amount is $" + calculateTotal1(luckyNumber1, totalAmount1));
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -161,7 +171,7 @@ if (confirm("Do you want put a number?")) {
         } else {
             alert("your input is an odd number.");
         }
-
+//  (userNumber % 2 === 0) ? alert("your input is an even number.") : alert("your input is an odd number.");
         alert("your input plus 100 equal to " + (userNumber + 100));
 
         if (userNumber > 0 ) {
@@ -177,12 +187,64 @@ if (confirm("Do you want put a number?")) {
     }
 }
 // refactoring to function:
-if (confirm("Do you want put a number?")) {
-    var userNumber = Number(prompt("your number is : "));
-    function userNumberTesting(userNumber) {
-        return userNumber + 100;
+// if (confirm("Do you want put a number?")) {
+//     var userNumber = Number(prompt("your number is : "));
+//     function userNumberTesting(userNumber) {
+//         return userNumber + 100;
+//     }
+// }
+function numberProperty() {
+    if (confirm("Do you want put a number?")) {
+        var userNumber1 = Number(prompt("your number is : "));
+        if (typeof userNumber1 === "number") {
 
+            if (userNumber1 % 2 === 0) {
+                alert("your input is an even number.");
+            } else {
+                alert("your input is an odd number.");
+            }
 
+            alert("your input plus 100 equal to " + (userNumber1 + 100));
+
+            if (userNumber1 > 0 ) {
+                alert("your input is positive.");
+            } else if (userNumber1 < 0 ) {
+                alert("your input is negative.");
+            } else {
+                alert("your input is 0, it's neither positive nor negative.");
+            }
+
+        } else {
+            alert("your input is not a number!");
+        }
     }
 }
+numberProperty();
+// or
+var numberProperty1 = function() {
+    if (confirm("Do you want put a number?")) {
+        var userNumber1 = Number(prompt("your number is : "));
+        if (typeof userNumber1 === "number") {
 
+            if (userNumber1 % 2 === 0) {
+                alert("your input is an even number.");
+            } else {
+                alert("your input is an odd number.");
+            }
+
+            alert("your input plus 100 equal to " + (userNumber1 + 100));
+
+            if (userNumber1 > 0 ) {
+                alert("your input is positive.");
+            } else if (userNumber1 < 0 ) {
+                alert("your input is negative.");
+            } else {
+                alert("your input is 0, it's neither positive nor negative.");
+            }
+
+        } else {
+            alert("your input is not a number!");
+        }
+    }
+}
+numberProperty1();
