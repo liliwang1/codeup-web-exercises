@@ -28,6 +28,11 @@ while (j < 5000) {
     j++;
     if (userNumber1 > 1 && userNumber1 < 50 && userNumber1 % 2 === 1) {break;}
 }
+
+do {
+    var userNumber1 = Number(prompt("Please enter an odd number between 1 and 50:"));
+} while(userNumber1 < 1 || userNumber1 > 50 || userNumber1 % 2 !== 1);
+
 function oddNumber1(c) {
     c = userNumber1;
     var output1 = "Number to skip is: " + c + "\n\n";
