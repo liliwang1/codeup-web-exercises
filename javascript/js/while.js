@@ -8,10 +8,39 @@ function twoSquare() {
     }
 }
 
-var randomNumber1 = Math. floor(Math. random() * (50 + 1) + 50);
-var a = randomNumber1;
+var a = Math. floor(Math. random() * (50 + 1) + 50);
+console.log(a);
 do {
-    var randomNumber2 = Math. floor(Math. random() * (4 + 1) + 1);
-    console.log(b + "cones sold...");
-    b++;
-} while (b < a);
+    var b = Math. floor(Math. random() * (4 + 1) + 1);
+    if (a < b) {
+        console.log("cannot sell you " + b + " cones, I only have " + a);
+        continue;
+    }
+    a -= b;
+    if (a === 0) {
+        console.log("sold last " + b + ". Yay! I sold them all!");
+        break;
+    }
+    console.log(b + " cones sold. " + a + " left");
+} while (a > 0);
+
+
+// var a = Math. floor(Math. random() * (50 + 1) + 50);
+// console.log(a);
+// do {
+//     var b = Math. floor(Math. random() * (4 + 1) + 1);
+//     if (a < b) {
+//         console.log("cannot sell you " + b + " cones, I only have " + a);
+//         continue;
+//     }
+//     a -= b;
+//     if (a === 0) {
+//         console.log("sold last " + b + ". Yay! I sold them all!");
+//         break;
+//     }
+//     if (b === 1) {
+//         console.log(b + " cone sold. " + a + " left");
+//     } else {
+//         console.log(b + " cones sold. " + a + " left");
+//     }
+// } while (a > 0);
