@@ -1,6 +1,9 @@
-describe('twoSquare', function () {
+describe('squareTwo', function () {
     it('should be defined', function () {
-        expect(twoSquare).toBeDefined();
+        expect(squareTwo).toBeDefined();
+    });
+    it('should return undefined ', function () {
+        expect(squareTwo()).toBeUndefined();
     });
     // it('should console.log expected result', function () {
     //     expect(console.log(i * 2 + '\n')).toEqual(
@@ -23,7 +26,7 @@ describe('twoSquare', function () {
     //     );
     // });
     it('should console.log expected result', function () {
-        expect(twoSquare()).toEqual();
+        expect(squareTwo()).toEqual();
     });
 })
 

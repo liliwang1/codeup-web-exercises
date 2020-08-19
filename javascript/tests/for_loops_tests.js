@@ -52,6 +52,8 @@ describe("returnTenEvenOddMessages", function() {
         expect(output.indexOf('even') >= 0 || output.indexOf('odd') >= 0).toBe(true);
         // expect(output.indexOf('even')).toBeGreaterThan(-1);
         // expect(output.indexOf('odd')).toBeGreaterThan(-1);
+        expect(returnTenEvenOddMessages()).endsWith('even') || (returnTenEvenOddMessages()).endsWith('odd');
+        // need to look it up!!!
     });
     it("should return an output with 10 lines", function() {
         expect(returnTenEvenOddMessages().split("\n").length).toEqual(10);

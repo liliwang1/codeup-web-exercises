@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function oddNumber() {
 var i = 0;

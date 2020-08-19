@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function returnMultiplicationTable(a) {
     let output = "";
@@ -10,6 +10,9 @@ function returnMultiplicationTable(a) {
 }
 
 function returnEvenOddMessage(b) {
+    //validate input:
+    if (!Number.isInteger(b)) return b + ' is invalid';
+    //production code:
     if (b % 2 === 0) {
         return b + " is even";
     } else {
@@ -37,6 +40,17 @@ function returnNumberSail() {
         }
     return output2;
 }
+
+// function returnNumberSail() {
+//     let str = ''
+//     for (let i = 1; i < 10; i++) {
+//         let j = i.toString()
+//         str += j.repeat(i);
+//
+//         if (i !== 9) str += '\n'
+//     }
+//     return str;
+// }
 
 function returnCountDownFrom100InFives() {
     let output3 = '';
