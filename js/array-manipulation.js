@@ -13,8 +13,10 @@
     addToEnd(['John', 'Sally', 'George'], 'Cathy') will return ['John', 'Sally', 'George', 'Cathy']
     addToEnd([4, null, true], ['wow']) will return [4, null, true, ['wow']]
  */
-
-
+function addToEnd(arr, a) {
+    arr.push(a);
+    return arr;
+}
 
 /*
     TODO: create a function, addToBeginning, that takes in a array and a second argument that is a single value.
@@ -26,8 +28,10 @@
     addToBeginning(['John', 'Sally', 'George'], 'Cathy') // returns ['Cathy', 'John', 'Sally', 'George']
     addToBeginning([4, null, true], ['wow']) // returns [['wow'], 4, null, true]
 */
-
-
+function addToBeginning(arr, b) {
+    arr.unshift(b);
+    return arr;
+}
 
 /*
     TODO: create a function, lopOffTwoFromEndAndAddToBeginning, that will take in an array of at least three elements and
@@ -39,8 +43,14 @@
     lopOffTwoFromEndAndAddToBeginning(['a', 'b', 'c', 'd', 'e']) // returns ['e', 'd', 'a', 'b', 'c']
     lopOffTwoFromEndAndAddToBeginning(['one', 'hmm', 4, 1]) // returns [1, 4, 'one', 'hmm']
  */
-
-
+function lopOffTwoFromEndAndAddToBeginning(arr) {
+    // var newArr = arr.splice(-2).reverse();
+    // return newArr.concat(arr);
+    var newArr = arr.slice(-2).reverse();
+    arr.pop();
+    arr.pop();
+    return newArr.concat(arr);
+}
 
 /*
     BONUS
@@ -63,8 +73,12 @@
         </ul>
     </nav>
  */
-
-
+function generateNavBar(arr) {
+    var newArr = arr.join(' </a> <a> ').split(' ');
+    newArr.unshift('<nav>','<ul>','<li>','<a>');
+    newArr.push('</a>','</li>','</ul>','</nav>');
+    return newArr.join('');
+}
 
 /*
     BONUS
@@ -81,7 +95,9 @@
 
     arrToCsv(exampleArray) // should return "1,2,3\n4,5,6\n7,8,9"
  */
+function arrToCsv(arr) {
 
+}
 /*
     BONUS
     TODO: create a function, csvToArr, that takes in a CSV formatted string and returns a two-dimensional array where the outer array

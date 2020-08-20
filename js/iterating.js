@@ -30,6 +30,9 @@ console.log(names[3]);
 for (let i = 0; i < names.length; i++) {
     console.log(names[i]);
 }
+for (let a = names.length; a > 0; a--) {
+    console.log(names[a - 1]);
+}
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop
@@ -37,6 +40,9 @@ for (let i = 0; i < names.length; i++) {
 names.forEach(function (name) {
     console.log(name);
 });
+names.forEach(name => {
+    console.log(name);
+})
     /**
      * TODO:
      * Create the following three functions, each will accept an array and
@@ -57,7 +63,7 @@ function secondElement(b) {
     return b[1];
 }
 function lastElement(c) {
-    return c[c.length - 1]
+    return c[c.length - 1];
 }
 })();
 
@@ -73,5 +79,6 @@ function secondElement(b) {
     }
 }
 function lastElement(c) {
-    return c[c.length - 1]
+    return c[c.length - 1];
+    //return c.slice(-1)[0];
 }
