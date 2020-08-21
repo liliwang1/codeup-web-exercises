@@ -28,7 +28,12 @@
     var planetsList = planetsArray.join(' </li> <li> ').split(' ');
     planetsList.unshift('<ul>','<li>');
     planetsList.push('</li>','</ul>');
-    console.log(planetsList.join(''));
+    console.log(planetsList.join('')); //join('\n')
 
     var planetsList1 = "<ul><li>" + planetsArray.join("</li><li>") + "</li></ul>";
+
+    console.log('<ul>\n<li>' + planetsArray.join('\n</li>\n<li>\n') + '</li>\n</ul>');
+
+    let planetsList2 = '<ul>' + planetsArray.map(function(planet) {return '<li>' + planet + '</li>';}).join('') + '</ul>';
+
 })();
