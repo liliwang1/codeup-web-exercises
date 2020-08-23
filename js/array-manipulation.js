@@ -96,7 +96,15 @@ function generateNavBar(arr) {
     arrToCsv(exampleArray) // should return "1,2,3\n4,5,6\n7,8,9"
  */
 function arrToCsv(arr) {
-
+    // let [first, second, third] = arr;
+    // // first ['1', '2', '3']
+    // // first ['4', '5', '6']
+    // // first ['7', '8', '9']
+    // first.join();
+    // second.join();
+    // third.join();
+    // return [first.join(), second.join(), third.join()].join('\\n');
+    return arr.join('\\n');
 }
 /*
     BONUS
@@ -111,3 +119,26 @@ function arrToCsv(arr) {
         [7, 8, 9]
     ]
  */
+
+
+function csvToArr(str) {
+    let csvArr = str.split('\n');
+    let numbersArr = [];
+    for (let i = 0; i < csvArr.length; i++) {
+        let chunks = csvArr[i].split(',');
+        for (let j = 0; j < chunks.length; j++) {
+            let chunk = Number(chunks[j]);
+            chunks.splice(j, 1, chunk);
+        }
+        numbersArr.push(chunks)
+    }
+    return numbersArr;
+}
+
+function csvToArrMap(csv) {
+    let csvArr = csv.split('\n').map(chunks => chunks.split(',').map(Number));
+    return csvArr;
+}
+
+str = "1,2,3\n4,5,6\n7,8,9";
+csvToArr(str)
