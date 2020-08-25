@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM: Query and Modify</title>
+</head>
+<body>
+
+<h1 id="main-header">Hello World!</h1>
+<ul>
+    <li data-dbid="1">Item 1</li>
+    <li data-dbid="2">Item 2</li>
+    <li data-dbid="3">Item 3</li>
+    <li data-dbid="4">Item 4</li>
+    <li data-dbid="5">Item 5</li>
+</ul>
+<h2 id="sub-header">Hello Again.</h2>
+<p class="sub-paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.
+</p>
+<button id="btn1"></button>
+<button id="btn2"></button>
+<button id="btn3"></button>
+<button id="btn4"></button>
+
+<script>
+    (function () {
+        "use strict";
+        // TODO: Uncomment next line and get the main header element by id
+        var mainHeader = document.getElementById('main-header');
+
+        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+        mainHeader.innerHTML = 'Javascript is Cool';
+        // console.log(mainHeader.innerText);
+        // console.log(mainHeader.innerHTML);
+
+        // var btn1 = document.getElementById('btn1');
+        // btn1.setAttribute('style', 'padding: 5px');
+        // btn1.addEventListener('click', listener1);
+        // function listener1() {
+        //     mainHeader.innerHTML = 'Javascript is Cool';
+        // }
+        // var btn2 = document.getElementById('btn2');
+        // btn2.setAttribute('style', 'padding: 10px');
+        // btn2.addEventListener('click', listener2);
+        // function listener2() {
+        //     ;
+        // }
+        // var btn3 = document.getElementById('btn3');
+        // btn3.setAttribute('style', 'padding: 15px; border: 5px solid #aaa');
+        // btn3.addEventListener('click', listener3);
+        // function listener3() {
+        //     ;
+        // }var btn4 = document.getElementById('btn4');
+        // btn4.setAttribute('style', 'padding: 20px; background-color: pink');
+        // btn4.addEventListener('click', listener4);
+        // function listener4() {
+        //     btn1.removeEventListener('click', listener1);
+        //     console.log('removed');
+        //     mainHeader.innerHTML = 'Hello World!';
+        // }
+
+        // TODO: Uncomment the next line and get the sub header element by id
+        var subHeader = document.getElementById('sub-header');
+
+        // TODO: Set the text color of subHeader to blue
+        subHeader.style.color = 'blue';
+        // TODO: Uncomment the next line and get all list items
+        var listItems = document.getElementsByTagName('li');
+        // console.log(listItems)
+        // console.log(listItems[0])
+        // console.log(listItems[0].getAttribute("data-dbid"))
+
+        // TODO: Set text color on every other list item to grey
+        // TODO: Set text color of li with dbid = 1 to blue
+        // for (var i = 0; i < listItems.length; i++) {
+        //     var dbID = parseFloat(listItems[i].getAttribute("data-dbid"));
+        //     if (dbID % 2 !== 0) {
+        //         listItems[i].style.color = '#bbb';
+        //     }
+        //     if (dbID === 1) {
+        //         listItems[i].style.color = 'blue';
+        //     }
+        // }
+
+        for (var i = 0; i < listItems.length; i++) {
+            var dbID = listItems[i].getAttribute("data-dbid");
+            if (dbID % 2 != 0) {
+                listItems[i].style.color = '#bbb';
+            }
+            if (dbID == 1) { // (dbID === '1')
+                listItems[i].style.color = 'blue';
+            }
+        }
+
+        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+        var subParagraphs = document.getElementsByClassName("sub-paragraph");
+        // console.log(subParagraphs);
+        console.log(subParagraphs[0]);
+        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        subParagraphs[0].innerHTML = 'Mission Accomplished';
+        // console.log(subParagraphs[0].innerHTML);
+        // console.log(subParagraphs[0].innerText);
+    })();
+</script>
+</body>
+</html>
