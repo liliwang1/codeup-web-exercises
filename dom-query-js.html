@@ -28,6 +28,7 @@
 <button id="btn2"></button>
 <button id="btn3"></button>
 <button id="btn4"></button>
+<p id="para"></p>
 
 <script>
     (function () {
@@ -36,35 +37,36 @@
         var mainHeader = document.getElementById('main-header');
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = 'Javascript is Cool';
+        // mainHeader.innerHTML = 'Javascript is Cool';
         // console.log(mainHeader.innerText);
         // console.log(mainHeader.innerHTML);
 
-        // var btn1 = document.getElementById('btn1');
-        // btn1.setAttribute('style', 'padding: 5px');
-        // btn1.addEventListener('click', listener1);
-        // function listener1() {
-        //     mainHeader.innerHTML = 'Javascript is Cool';
-        // }
-        // var btn2 = document.getElementById('btn2');
-        // btn2.setAttribute('style', 'padding: 10px');
-        // btn2.addEventListener('click', listener2);
-        // function listener2() {
-        //     ;
-        // }
-        // var btn3 = document.getElementById('btn3');
-        // btn3.setAttribute('style', 'padding: 15px; border: 5px solid #aaa');
-        // btn3.addEventListener('click', listener3);
-        // function listener3() {
-        //     ;
-        // }var btn4 = document.getElementById('btn4');
-        // btn4.setAttribute('style', 'padding: 20px; background-color: pink');
-        // btn4.addEventListener('click', listener4);
-        // function listener4() {
-        //     btn1.removeEventListener('click', listener1);
-        //     console.log('removed');
-        //     mainHeader.innerHTML = 'Hello World!';
-        // }
+        var btn1 = document.getElementById('btn1');
+        btn1.setAttribute('style', 'padding: 5px');
+        btn1.addEventListener('click', listener1);
+        function listener1() {
+            mainHeader.innerHTML = 'Javascript is Cool';
+        }
+        var btn2 = document.getElementById('btn2');
+        btn2.setAttribute('style', 'padding: 10px');
+        btn2.addEventListener('click', listener2);
+        function listener2(event) {
+            document.getElementById('para').innerText = 'The End';
+            document.getElementById('para').style.fontSize = '3rem';
+        }
+        var btn3 = document.getElementById('btn3');
+        btn3.setAttribute('style', 'padding: 15px; border: 5px solid #aaa');
+        btn3.addEventListener('click', listener3);
+        function listener3() {
+            ;
+        }var btn4 = document.getElementById('btn4');
+        btn4.setAttribute('style', 'padding: 20px; background-color: pink');
+        btn4.addEventListener('click', listener4);
+        function listener4() {
+            btn1.removeEventListener('click', listener1);
+            console.log('removed');
+            mainHeader.innerHTML = 'Hello World!';
+        }
 
         // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById('sub-header');
