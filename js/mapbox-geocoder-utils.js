@@ -24,10 +24,20 @@ function geocode(search, token) {
             return data.features[0].center;
         });
 }
-geocode("600 Navarro St #350, San Antonio, TX 78205", MAPBOX_TOKEN).then(function(result) {
+geocode("2347 NW Military Hwy, San Antonio, TX 78205", MAPBOX_TOKEN).then(function(result) {
     console.log(result);
     // map.setCenter(result);
-    // map.setZoom(18);
+    // map.setZoom(13);
+});
+geocode("1900 Blanco Rd, San Antonio, TX 78212", MAPBOX_TOKEN).then(function(result) {
+    console.log(result);
+    // map.setCenter(result);
+    // map.setZoom(13);
+});
+geocode("14250 San Pedro Ave, San Antonio, TX 78232", MAPBOX_TOKEN).then(function(result) {
+    console.log(result);
+    // map.setCenter(result);
+    // map.setZoom(13);
 });
 
 /***
@@ -43,21 +53,21 @@ geocode("600 Navarro St #350, San Antonio, TX 78205", MAPBOX_TOKEN).then(functio
  *  })
  *
  */
-function reverseGeocode(coordinates, token) {
-    var baseUrl = 'https://api.mapbox.com';
-    var endPoint = '/geocoding/v5/mapbox.places/';
-    return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
-        .then(function(res) {
-            return res.json();
-        })
-        // to get all the data from the request, comment out the following three lines...
-        .then(function(data) {
-            return data.features[0].place_name;
-        });
-}
-
-// reverse geocode method from mapbox-geocoder-utils.js
-reverseGeocode({lng: -98.4861, lat: 29.4260}, MAPBOX_TOKEN).then(function(results) {
-    // logs the address for The Alamo
-    console.log(results);
-});
+// function reverseGeocode(coordinates, token) {
+//     var baseUrl = 'https://api.mapbox.com';
+//     var endPoint = '/geocoding/v5/mapbox.places/';
+//     return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
+//         .then(function(res) {
+//             return res.json();
+//         })
+//         // to get all the data from the request, comment out the following three lines...
+//         .then(function(data) {
+//             return data.features[0].place_name;
+//         });
+// }
+//
+// // reverse geocode method from mapbox-geocoder-utils.js
+// reverseGeocode({lng: -98.4861, lat: 29.4260}, MAPBOX_TOKEN).then(function(results) {
+//     // logs the address for The Alamo
+//     console.log(results);
+// });

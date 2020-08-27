@@ -3,17 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
 
 </head>
 <body>
+<style>
+    .marker {
+        background-image: url("image/mapbox-icon.png");
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .mapboxgl-popup {
+        max-width: 200px;
+    }
+
+    .mapboxgl-popup-content {
+        text-align: center;
+        /*font-family: 'Open Sans', sans-serif;*/
+        font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    }
+
+    #map, #map1 {
+        position: absolute;
+    }
+    #map {
+        top: 100px;
+    }
+    #map1 {
+        top: 650px;
+    }
+    button {
+        display: block;
+        position: relative;
+        top: 20px;
+        left: 0;
+        z-index: 100;
+        margin: 0px;
+        width: 15%;
+        height: 30px;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        font-size: 12px;
+        font-weight: bold;;
+        text-align: center;
+        color: #fff;
+        background: rgba(0, 0, 0, .4);
+    }
+
+    #clear {
+        width: 15%;
+    }
+</style>
+
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+<link
+        rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+        type="text/css"
+/>
+
 <h1>map</h1>
+<!--<input type="text" for="zoom" name="zoom">-->
+<button id="clear" type="button">clear markers</button>
+<button id="zoom1" class="5" type="button">zoom 5</button>
+<button id="zoom2" class="10" type="button">zoom 10</button>
+<button id="zoom3" class="15" type="button">zoom 15</button>
 
 <div id='map' style='width: 600px; height: 500px;'></div>
+<br><br>
+<div id='map1' style='width: 600px; height: 500px;'></div>
+
 <script src="js/keys.js"></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script src="js/maps.js"></script>
+<script src="js/maps1.js"></script>
 </body>
 </html>
