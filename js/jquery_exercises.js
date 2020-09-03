@@ -5,6 +5,10 @@
         alert( 'The DOM has finished loading!' );
         $('#output').html('<h3>World</h3>');
         jQuery('#output').html('<h3>jQuery</h3>'); // override previous line
+        let content = $('#output').html(); // work on the first element with the same id
+        alert(content);
+        $('*').css('border', '1px dotted red');
+
 
 
 
