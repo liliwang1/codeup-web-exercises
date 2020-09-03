@@ -3,9 +3,21 @@
 
     $(document).ready(function() {
         alert( 'The DOM has finished loading!' );
-        $('li').css('font-size', '20px');
-        alert($('h1').html());
-        $('h1, p, li').css('background-color', 'yellow');
+        $('h1').click((e) => {
+            $(e.currentTarget).css('background-color', 'red');
+        });
+        $('p').dblclick(function() {
+            $(this).css('font-size', '18px');
+        });
+        $('li').hover(
+            function() {
+                $(this).css('color', 'red');
+            },
+            function() {
+                $(this).css('color', 'black');
+            }
+        );
+
 
 
 
