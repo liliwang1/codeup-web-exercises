@@ -3,9 +3,9 @@
 
     $(document).ready(function() {
         alert( 'The DOM has finished loading!' );
-        let foodItem = $('.food-item');
-        foodItem.css('border','1px dotted red');
-        foodItem.css('list-style','none');
+        $('li').css('font-size', '20px');
+        alert($('h1').html());
+        $('h1, p, li').css('background-color', 'yellow');
 
 
 
