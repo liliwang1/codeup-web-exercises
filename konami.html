@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+<label for="user-input">Please enter your code here
+    <input type="text" id="user-input">
+</label>
+<div class="output"></div>
+
+<script src="js/jquery-3.5.1.js"></script>
+<script>
+    "use strict";
+
+    // $(document).keyup(function(event){
+    //     console.log(event.keyCode);
+    // });
+
+    var str = '';
+    $('#user-input').keyup(function (e) {
+        str += e.keyCode;
+        console.log(str);
+        if (str === '3838404037393739666513') {
+            $('.output').html('You have 30 new lives');
+            $('.output').css({
+                'font-size': '30px',
+                'border': '1px dashed red',
+                'display': 'inline'
+            });
+        }
+    });
+</script>
+</body>
+</html>
