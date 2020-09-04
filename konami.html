@@ -2,11 +2,17 @@
 <html>
 <head>
     <title>Konami Code</title>
+    <style>
+        body {
+            text-align: center;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
 <h1>Konami Code</h1>
 <label for="user-input">Please enter your code here
-    <input type="text" id="user-input">
+    <input type="password" id="user-input">
 </label>
 <div class="output"></div>
 
@@ -23,12 +29,29 @@
         str += e.keyCode;
         console.log(str);
         if (str === '3838404037393739666513') {
-            $('.output').html('You have 30 new lives');
-            $('.output').css({
-                'font-size': '30px',
-                'border': '1px dashed red',
-                'display': 'inline'
-            });
+            $('.output').html('You have added 30 new lives')
+                .css({
+                    'border': '5px dashed yellow',
+                    'position': 'absolute',
+                    'padding': '50px 30px',
+                    'width': '50%',
+                    'color': 'yellow',
+                    'font-weight': 'bold',
+                    'background-color': 'rgba(0, 0, 0, 0.8)'
+                })
+                .animate({fontSize: '50px'}, "slow")
+                .animate({
+                    left: '25%',
+                    top: '20vh'
+                }, 1500)
+                .animate({
+                    height: '35%',
+                    fontSize: '10vh',
+                    // padding: 'calc((35% - 10vh) / 2) 30px',
+                    left: '12.5%',
+                    width: '75%'
+                }, 1500);
+            $('body').css('background', 'url(image/videogame-background.png)');
         }
     });
 </script>
