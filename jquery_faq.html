@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>National Parks Q&A</title>
     <style>
+        *{
+            box-sizing: border-box;
+        }
         dt {
             font-size: 1.5em;
             margin: 0.5em 3em;
@@ -23,6 +26,36 @@
         .enlarge {
             font-size: 2em;
         }
+        .bolden {
+            font-weight: bold;
+        }
+        .blue-font {
+            color: blue;
+        }
+        .picture-frame {
+            border: 8px solid saddlebrown;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+        .img {
+            width: 200px;
+            height: 300px;
+            border: 3px solid burlywood;
+        }
+        /* .left-img {
+            background-image: url("https://picsum.photos/id/737/200/300");
+            background-repeat: no-repeat;
+        }
+        .middle-img {
+            background-image: url("https://picsum.photos/200/300");
+            background-repeat: no-repeat;
+        }
+        .right-img {
+            background-image: url("https://picsum.photos/id/557/200/300");
+            background-repeat: no-repeat;
+        } */
     </style>
 </head>
 <body>
@@ -117,6 +150,45 @@
     </dd>
 </dl>
 <a href="" id="toggle-link">click here to see the Qs</a>
+<h3 class="s">Yellowstone National Park</h3>
+<ul>
+    <li>located largely in the northwest corner of Wyoming and extending into Montana, and Idaho</li>
+    <li>spans an area of 3,468.4 square miles</li>
+    <li>the first national park in the U.S., also widely held to be the first national park in the world</li>
+    <li>in 2019 4,020,288 visitors visited the park</li>
+</ul>
+<h3 class="s">Yosemite National Park</h3>
+<ul>
+    <li>located in the western Sierra Nevada of Central California,</li>
+    <li>covers an area of 748,436 acres</li>
+    <li>Almost 95% of the park is designated wilderness</li>
+    <li>about four million people visit Yosemite each year on average</li>
+</ul>
+<h3 class="s">Joshua Tree National Park</h3>
+<ul>
+    <li>in southeastern California,</li>
+    <li>encompassing a total of 790,636 acres</li>
+    <li>is named for the Joshua trees native to the Mojave Desert</li>
+    <li>in 2018 2,942,382 visitors visited the park</li>
+</ul>
+<button type="button" id="btn">click here for highlight</button>
+<hr>
+<div class="picture-frame">
+    <div class="left-img img"><img src="https://picsum.photos/id/737/200/300" alt=""></div>
+    <br>
+    <button type="button" class="left-button">click to swap</button>
+</div>
+<div class="picture-frame">
+    <div class="middle-img img"><img src="https://picsum.photos/200/300" alt=""></div>
+    <br>
+    <button type="button" class="middle-button">click to swap</button>
+</div>
+<div class="picture-frame">
+    <div class="right-img img"><img src="https://picsum.photos/id/557/200/300" alt=""></div>
+    <br>
+    <button type="button" class="right-button">click to swap</button>
+</div>
+
 <script src="js/jquery-3.5.1.js"></script>
 <script>
     (function () {
@@ -131,6 +203,71 @@
                 $(this).toggleClass('highlight');
                 $(this).next().toggleClass('enlarge').toggleClass('highlight');
             })
+
+            $('#btn').click(function (e) {
+                e.preventDefault();
+                $('ul').each(function(i) {
+                    $(this).children().last().toggleClass('highlight');
+                })
+            })
+
+            $('h3').click(function () {
+                $(this).next().children().toggleClass('bolden');
+            })
+
+            $('li').click(function () {
+                $(this).parent().children().first().toggleClass('blue-font');
+            })
+            /* $('.left-button').click(function (e) {
+                e.preventDefault();
+                $(this).parent().next().children().first().addClass('left-img').removeClass('middle-img');
+                $(this).parent().children().first().addClass('middle-img').removeClass('left-img');
+            })
+            $('.middle-button').click(function (e) {
+                e.preventDefault();
+
+            })
+            $('.right-button').click(function (e) {
+                e.preventDefault();
+                $(this).parent().prev().children().first().addClass('right-img').removeClass('middle-img');
+                $(this).parent().children().first().addClass('middle-img').removeClass('right-img');
+            }) */
+            $('.left-button').click(function (e) {
+                e.preventDefault();
+                let div1Content = $(this).parent().children().first().html();
+                let div2Content = $(this).parent().next().children().first().html();
+                console.log(div1Content);
+                console.log(div2Content);
+                $(this).parent().children().first().html(div2Content);
+                $(this).parent().next().children().first().html(div1Content);
+            })
+            $('.middle-button').click(function (e) {
+                e.preventDefault();
+                let div2Content = $(this).parent().children().first().html();
+                let div1Content = $(this).parent().prev().children().first().html();
+                let div3Content = $(this).parent().next().children().first().html();
+                console.log(div1Content);
+                console.log(div2Content);
+                console.log(div3Content);
+                let num = Math.floor(Math.random()*3 + 1);
+                if(num === 1) {
+                    $(this).parent().children().first().html(div1Content);
+                    $(this).parent().prev().children().first().html(div2Content);
+                } else if(num === 3) {
+                    $(this).parent().children().first().html(div3Content);
+                    $(this).parent().next().children().first().html(div2Content);
+                }
+            })
+            $('.right-button').click(function (e) {
+                e.preventDefault();
+                let div3Content = $(this).parent().children().first().html();
+                let div2Content = $(this).parent().prev().children().first().html();
+                console.log(div3Content);
+                console.log(div2Content);
+                $(this).parent().children().first().html(div2Content);
+                $(this).parent().prev().children().first().html(div3Content);
+            })
+
         });
     })();
 </script>
