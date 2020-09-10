@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Page</title>
+</head>
+<body>
+<h1 id="h1_1">Blog</h1>
+<div id="posts"></div>
+<button id="btn">refresh</button>
+
+<script src="js/jquery-3.5.1.js"></script>
+<script>
+    (function () {
+        "use strict"
+        $().ready(function () {
+            $.ajax("data/blog.json").done(onSuccess);
+
+            function onSuccess(data, status, jqXhr) {
+                console.log("AJAX call completed successfully!");
+                console.log("Request status: " + status);
+                console.log("Data returned from server:", data);
+                let html = '';
+                for (let dataItem of data) {
+                    html += `<div>
+                                <div>${dataItem['title']}</div>
+                                <div>${dataItem.date}</div>
+                                <div>categories: ${dataItem.categories}</div>
+                                <div>${dataItem.content}</div>
+                             </div><hr>`;
+                    console.log(dataItem);
+                }
+                $('#posts').html(html);
+            }
+
+            $('#btn').click(function () {
+                $.ajax("data/blog.json").done(onSuccess);
+            })
+        });
+    })();
+</script>
+</body>
+</html>

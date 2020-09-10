@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Page</title>
+</head>
+<body>
+<h1 id="h1_1">This is a test page</h1>
+<div id="div1"></div>
+<script src="js/jquery-3.5.1.js"></script>
+<script>
+    (function () {
+        "use strict"
+        $().ready(function () {
+            $.ajax("data/colors.json").done(function(data, status, jqXhr) {
+                alert("AJAX call completed successfully!");
+                console.log("Request status: " + status);
+                console.log("Data returned from server:");
+                console.log(data);
+                let html = '';
+                for (let dataItem of data) {
+                    html += `<div>${dataItem.color} value is ${dataItem.value}</div>`;
+                    console.log(dataItem.color); // dataItem['color']
+                    console.log(dataItem);
+                }
+                $('#div1').html(html);
+            });
+
+        });
+    })();
+</script>
+</body>
+</html>

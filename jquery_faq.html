@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>National Parks Q&A</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
         *{
             box-sizing: border-box;
@@ -35,13 +37,11 @@
         .picture-frame {
             border: 8px solid saddlebrown;
             padding: 10px;
-            margin: 10px;
+            /*margin: 10px;*/
             display: inline-block;
             text-align: center;
         }
         .img {
-            width: 200px;
-            height: 300px;
             border: 3px solid burlywood;
         }
         /* .left-img {
@@ -59,8 +59,14 @@
     </style>
 </head>
 <body>
-<h1>Yellow Stone National Park</h1>
-<h2>Frequently Asked Questions</h2>
+<div class="container">
+<h1>National Parks</h1>
+<div id="newsletter" class="alert alert-dismissible alert-info">
+    <span id="hide-newsletter" class="close" data-dismiss="alert">X</span>
+    <h1>Would you like to sign up for our newsletter?</h1>
+</div>
+<h2 class="register">Register for our site</h2>
+<h2>FAQ of Yellow Stone National Park </h2>
 <dl>
     <dt>
         Where do I Make Reservations to Stay in Yellowstone?
@@ -151,21 +157,21 @@
 </dl>
 <a href="" id="toggle-link">click here to see the Qs</a>
 <h3 class="s">Yellowstone National Park</h3>
-<ul>
+<ul class="invisible">
     <li>located largely in the northwest corner of Wyoming and extending into Montana, and Idaho</li>
     <li>spans an area of 3,468.4 square miles</li>
     <li>the first national park in the U.S., also widely held to be the first national park in the world</li>
     <li>in 2019 4,020,288 visitors visited the park</li>
 </ul>
 <h3 class="s">Yosemite National Park</h3>
-<ul>
+<ul class="invisible">
     <li>located in the western Sierra Nevada of Central California,</li>
     <li>covers an area of 748,436 acres</li>
     <li>Almost 95% of the park is designated wilderness</li>
     <li>about four million people visit Yosemite each year on average</li>
 </ul>
 <h3 class="s">Joshua Tree National Park</h3>
-<ul>
+<ul class="invisible">
     <li>in southeastern California,</li>
     <li>encompassing a total of 790,636 acres</li>
     <li>is named for the Joshua trees native to the Mojave Desert</li>
@@ -173,20 +179,23 @@
 </ul>
 <button type="button" id="btn">click here for highlight</button>
 <hr>
-<div class="picture-frame">
+    <div class="row">
+<div class="picture-frame col-4">
     <div class="left-img img"><img src="https://picsum.photos/id/737/200/300" alt=""></div>
     <br>
     <button type="button" class="left-button">click to swap</button>
 </div>
-<div class="picture-frame">
+<div class="picture-frame col-4">
     <div class="middle-img img"><img src="https://picsum.photos/200/300" alt=""></div>
     <br>
     <button type="button" class="middle-button">click to swap</button>
 </div>
-<div class="picture-frame">
+<div class="picture-frame col-4">
     <div class="right-img img"><img src="https://picsum.photos/id/557/200/300" alt=""></div>
     <br>
     <button type="button" class="right-button">click to swap</button>
+</div>
+    </div>
 </div>
 
 <script src="js/jquery-3.5.1.js"></script>
@@ -206,18 +215,21 @@
 
             $('#btn').click(function (e) {
                 e.preventDefault();
-                $('ul').each(function(i) {
+                $('ul').each(function() {
+                    $(this).toggleClass('invisible');
                     $(this).children().last().toggleClass('highlight');
                 })
             })
 
             $('h3').click(function () {
-                $(this).next().children().toggleClass('bolden');
+                $(this).next().toggleClass('invisible');
+                $(this).next().addClass('bolden').slideToggle(500);
             })
 
             $('li').click(function () {
                 $(this).parent().children().first().toggleClass('blue-font');
             })
+
             /* $('.left-button').click(function (e) {
                 e.preventDefault();
                 $(this).parent().next().children().first().addClass('left-img').removeClass('middle-img');
@@ -249,11 +261,11 @@
                 console.log(div1Content);
                 console.log(div2Content);
                 console.log(div3Content);
-                let num = Math.floor(Math.random()*3 + 1);
+                let num = Math.floor(Math.random()*2 + 1);
                 if(num === 1) {
                     $(this).parent().children().first().html(div1Content);
                     $(this).parent().prev().children().first().html(div2Content);
-                } else if(num === 3) {
+                } else if(num === 2) {
                     $(this).parent().children().first().html(div3Content);
                     $(this).parent().next().children().first().html(div2Content);
                 }
@@ -268,8 +280,22 @@
                 $(this).parent().prev().children().first().html(div3Content);
             })
 
+            // $('#hide-newsletter').click(function () {
+            //     $('#newsletter').hide(1000);
+            // })
+
+            // setTimeout(function () {
+            //     // $('.register').removeClass('invisible');
+            //     $('.register').fadeIn(2000); // does not work in bootstrap
+            // }, 8000)
+
+            // $('.register').hide().delay(3000).fadeIn(1000);
+            $('.register').hide().delay(3000).slideIn(1000);
         });
     })();
 </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>

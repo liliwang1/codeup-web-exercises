@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" name="" id="input-field">
+<input type="submit" id="submit-btn">
+<div class="demo"></div>
+<script src="js/jquery-3.5.1.js"></script>
+<script>
+    (function() {
+        'use strict';
+        $().ready(function () {
+            $('#submit-btn').click(function (e) {
+                e.preventDefault();
+                let input = $('#input-field').val();
+                console.log(input);
+                $('.demo').html(input);
+            })
+
+        })
+    })()
+</script>
+</body>
+</html>
