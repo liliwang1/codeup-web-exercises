@@ -2,12 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+          integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="css/styles.css">-->
     <title>Weather Map</title>
 </head>
 <body>
+<div class="container">
+    <h1 id="h1_1">Weather & Map</h1>
+    <div id="posts"></div>
+    <div class="text-center pb-3">
+        <button id="btn" class="btn btn-secondary w-50">refresh</button>
+    </div>
+</div>
 
+<script src="js/jquery-3.5.1.js"></script>
+<!--<script src="js/main.js"></script>-->
+<script src="js/keys.js"></script>
 <script>
+    (function () {
+        "use strict"
+        $().ready(function () {
+            $.ajax("http://api.openweathermap.org/data/2.5/weather", {
+                data: {
+                    APPID: OPEN_WEATHER_APPID,
+                    q:     "San Antonio, US"
+                }
+            }).done(onSuccess);
+            function onSuccess(data, status, jqXhr) {
+                console.log("Request status: " + status);
+                console.log(data);
+                let html = `${data.name}`;
+                // for (let dataItem of data) {
+                //     html += `<div>
+                //                 <div>${dataItem['title']}</div>
+                //                 <div>${dataItem.date}</div>
+                //                 <div>categories: ${dataItem.categories}</div>
+                //                 <div>${dataItem.content}</div>
+                //              </div><hr>`;
+                //     console.log(dataItem);
+                // }
+                $('body').html(html);
+            }
 
+            $('#btn').click(function () {
+
+            })
+        });
+    })();
 </script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 </body>
 </html>
