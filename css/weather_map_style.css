@@ -1,0 +1,16 @@
+:root {
+    --primary-clr: #5c4d4d;
+    --secondary-clr: #915b4a;
+    --tertiary-clr: #a96851;
+    --alter-clr: #f2f1e7;
+}
+
+/************   GENERAL STYLING   ************/
+body {
+    background-color: var(--background-clr) #f2f1e7;
+}
+hr {
+    margin: 0;
+    border: 1px solid #eee !important;
+    width: 85%;
+}
