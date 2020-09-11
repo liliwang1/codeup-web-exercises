@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var arr = [
+        {
+            "title": "Hammer",
+            "quantity": 25,
+            "categories": [
+                "tool"
+            ],
+            "price": 20
+        }, {
+        "title": "Drill",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "powered"
+        ],
+        "price": 100
+    }, {
+        "title": "Mower",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "gas",
+            "outdoor"
+        ],
+        "price": 200
+    }, {
+        "title": "Screwdriver",
+        "quantity": 25,
+        "categories": [
+            "tool"
+        ],
+        "price": 10
+    },    {
+        "title": "Computer",
+        "quantity": 2,
+        "categories": [
+            "tool"
+        ],
+        "price": 699
+    }, {
+        "title": "Pencil",
+        "quantity": 500,
+        "categories": [
+            "tool"
+        ],
+        "price": 1
+    }, {
+        "title": "Tesla",
+        "quantity": 5,
+        "categories": [
+            "electric",
+            "car",
+            "outdoor"
+        ],
+        "price": 50000
+    }, {
+        "title": "Blue Jeans",
+        "quantity": 27,
+        "categories": [
+            "clothing"
+        ],
+        "price": 27
+    }
+    ]
+    console.log(arr.length);
+    const highPrice = arr.reduce((acc, cur) => {
+        console.log(acc, cur, cur.price);
+        if (acc >= cur.price) return acc;
+        if (acc < cur.price) return cur.price;
+    }, 0)
+    console.log(highPrice);
+
+    const highestPriceItem = arr.forEach((ele,i) => {
+        if (ele.price === highPrice) {
+            console.log(ele, i);
+            console.log(arr[i].title);
+            // return arr[i].title;
+            return arr[i];
+        }
+    } )
+    console.log(highestPriceItem);
+
+    const lowPrice = arr.reduce((acc, cur) => {
+        console.log(acc, cur, cur.price);
+        if (acc > cur.price) return cur.price;
+        if (acc <= cur.price) return acc;
+    }, arr[0].price)
+    console.log(lowPrice);
+</script>
+</body>
+</html>

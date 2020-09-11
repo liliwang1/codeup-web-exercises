@@ -7,10 +7,46 @@
 
 /************   GENERAL STYLING   ************/
 body {
-    background-color: var(--background-clr) #f2f1e7;
+    /*background-color: var(--background-color, #f2f1e7);*/
+    background-image: var(--background-img, url('../image/ripples.png'));
+    background-repeat: repeat;
 }
 hr {
     margin: 0;
     border: 1px solid #eee !important;
     width: 85%;
+}
+.card {
+    transform: scale(1);
+    transition: transform 500ms ease-in-out;
+}
+.card:hover {
+    transform: scale(1.02);
+}
+#popover-box,#local-info {
+    background-color: #f6f7f9;
+    padding: .5em;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+#popover-box:hover,
+#local-info:hover,
+#forecast-item:hover {
+    cursor: pointer;
+}
+#popover-box {
+    position: absolute;
+    top: 200px;
+    left: 33%;
+    /*transform: scale(0);*/
+}
+#local-info {
+    position: sticky;
+    top: 31%;
+    left: 1%;
+}
+.invisible {
+    display: none;
+    /*transition: transform 500ms ease-in-out;*/
+    /*transform: scale(1);*/
 }
