@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
 :root {
     --primary-clr: #5c4d4d;
     --secondary-clr: #915b4a;
@@ -10,6 +11,7 @@ body {
     background-image: var(--background-img, url('../image/ripples.png'));
     background-repeat: repeat;
     /*position: relative;*/
+    /*height: 100vh;*/
 }
 
 .navbar-brand {
@@ -26,15 +28,23 @@ hr {
     border: 1px solid #eee !important;
     width: 85%;
 }
-/******************************   CARD STYLING   *******************************/
-.card {
+
+/****************************   CARD & MAP STYLING   *****************************/
+.card, #map {
     transform: scale(1);
     transition: transform 500ms ease-in-out;
 }
 
-.card:hover {
+#map {
+    width: 100%;
+    height: 500px;
+}
+
+.card:hover,
+#map:hover {
     transform: scale(1.02);
 }
+
 /***************************   JS COMPONENTS STYLING   *************************/
 #popover-box, #local-info {
     background-color: #f6f7f9;
@@ -47,7 +57,6 @@ hr {
     top: 230px;
     left: 33%;
     border: 1px solid #bbb;
-    /*transform: scale(0);*/
 }
 
 #local-info {
@@ -66,6 +75,4 @@ hr {
 
 .invisible {
     display: none;
-    /*transition: transform 500ms ease-in-out;*/
-    /*transform: scale(1);*/
 }
