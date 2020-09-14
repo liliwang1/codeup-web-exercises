@@ -13,32 +13,36 @@
     <title>Weather Map</title>
 </head>
 <body>
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
-<link
-        rel="stylesheet"
-        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
-        type="text/css"
-/>
-<!------------------------------------------- nav bar -------------------------------------------------------------->
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-2">
+<!------------------------------------------- nav bar ------------------------------------------------------------>
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm mb-2">
     <h1 class="navbar-brand font-weight-bold mr-auto">Weather & Map</h1>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active font-weight-bold">
-                <a class="nav-link" href="#" id="date"></a>
-            </li>
+            <li class="nav-item active font-weight-bold d-flex align-items-center" id="date"></li>
             <li class="nav-item mx-3 mt-2" id="icon"></li>
             <li class="nav-item dropdown" id="dropdownCity">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Cities</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">San Antonio</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Menu</a>
+                <div class="dropdown-menu text-center">
+                    <div class="text-left text-muted pl-3">Cities</div>
+                    <a class="dropdown-item city-toggle" href="#">San Antonio</a>
+                    <a class="dropdown-item city-toggle" href="#">Berlin</a>
+                    <a class="dropdown-item city-toggle" href="#">New York</a>
+                    <a class="dropdown-item city-toggle" href="#">San Francisco</a>
+                    <a class="dropdown-item city-toggle" href="#">Xi'an</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">New York</a>
-                    <a class="dropdown-item" href="#">San Francisco</a>
-                    <!--                    <a class="dropdown-item" href="#">Xi'an</a>-->
+                    <div class="text-left text-muted pl-3">Unit</div>
+                    <a class="dropdown-item unit-toggle" href="#">Metric</a>
+                    <a class="dropdown-item unit-toggle" href="#">Imperial</a>
+                    <div class="dropdown-divider"></div>
+                    <div class="text-left text-muted pl-3">Map Style</div>
+                    <a class="dropdown-item map-toggle" href="#">Light</a>
+                    <a class="dropdown-item map-toggle" href="#">Dark</a>
+                    <a class="dropdown-item map-toggle" href="#">Streets</a>
+                    <a class="dropdown-item map-toggle" href="#">Outdoors</a>
+                    <a class="dropdown-item map-toggle" href="#">Satellite-Streets</a>
                 </div>
             </li>
         </ul>
@@ -49,18 +53,18 @@
         </form>
     </div>
 </nav>
-<!------------------------------------------- cards and map ------------------------------------------------------->
+<!------------------------------------------- cards and map ------------------------------------------------------>
 <div class="container-xl">
     <div class="row d-flex justify-content-around">
-        <div class="card bg-light my-3 col-sm-9 col-md-4 shadow">
+        <div class="card my-3 col-sm-9 col-md-4 shadow">
             <div class="card-header h5">Current Weather</div>
             <div class="card-body py-4">
-                <!--                <h5 class="card-title">card title</h5>-->
-                <div class="card-text d-flex flex-column align-items-center justify-content-around h-100 h6 border bg-white rounded p-1"
+                <!--                <h5 class="card-title">title</h5>-->
+                <div class="card-text d-flex flex-column align-items-center justify-content-around h-100 h6 border rounded p-1 bg-white"
                      id="current"></div>
             </div>
         </div>
-        <div class="card bg-light my-3 col-sm-10 col-md-7 shadow">
+        <div class="card my-3 col-sm-10 col-md-7 shadow">
             <div class="card-header h5">5-Day Forecast <span id="cityName"></span></div>
             <div class="card-body py-2">
                 <p class="card-text">
@@ -75,12 +79,12 @@
     </div>
     <div id="time"></div>
 </div>
-<div id="popover-box" class="invisible shadow"></div>
+<div id="popover-box" class="invisible shadow text-center"></div>
 <!--<div id="local-info" class="d-inline-block shadow"></div>-->
 <!------------------------------------------- footer ------------------------------------------------------------->
-<footer class="footer mt-auto bg-light py-3 shadow">
+<footer class="footer mt-auto py-3 shadow">
     <div class="container d-flex justify-content-end mr-0">
-        <span class="font-weight-bold"> © 2020 OpenWeather & Mapbox project Li Wang</span>
+        <span class="font-weight-bold footer-info"> © 2020 OpenWeather & Mapbox project Li Wang</span>
     </div>
 </footer>
 <!------------------------------------------- javascript --------------------------------------------------------->
