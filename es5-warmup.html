@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+    <div>bob</div>
+    <div>STEVE</div>
+    <div>sAlLY</div>
+</main>
+<script>
+    "use strict";
+    var name1 = {lName: "smith"}; // avoid using "name" as variable name, as its a build-in property/method
+    console.log(name1.lName);
+    document.querySelectorAll('div').forEach((div) => {
+        let newFirstName = captalizeFirstLetter(div.textContent);
+        let newLastName = captalizeFirstLetter(name1.lName);
+        div.innerText = newFirstName + ' ' + newLastName;
+    })
+    function captalizeFirstLetter(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase(); // str.substring(1).toLowerCase()
+    }
+
+    // let name = {lName: "smith"};
+    // console.log(name.lName);
+    // document.querySelectorAll('div').forEach((div) => {
+    //     let newFirstName = captalizeFirstLetter(div.textContent);
+    //     let newLastName = captalizeFirstLetter(name.lName);
+    //     div.innerText = newFirstName + ' ' + newLastName;
+    // })
+
+</script>
+</body>
+</html>
