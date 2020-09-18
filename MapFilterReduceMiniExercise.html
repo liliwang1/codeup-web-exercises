@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map Filter Reduce Mini Exercise</title>
+</head>
+<body>
+
+<script>
+    "use strict";
+    const dogs = [
+        {
+            name: 'bubbles',
+            age: 10,
+            isTrained: false
+        },
+        {
+            name: 'lexie',
+            age: 3,
+            isTrained: true
+        },
+        {
+            name: 'doggy',
+            age: 5,
+            isTrained: false
+        }
+    ];
+
+    // TODO: using map, create a new array of dog names from the dogs array
+    // TODO: using map, create a new array of dog ages from the dogs array
+    // TODO: using map, create a new array of dog objects from the dogs array that only have name and age property values
+    const nameArr = dogs.map(({ name }) => name);
+    const ageArr = dogs.map(dog => dog.age);
+    const objArr = dogs.map(({ name, age }) => {return {name, age}});
+    const objArr1 = dogs.map(({ name, age }) => ({name, age})); // !!! on right hand side of =>, without the (), javascript will think the object is the function body within {}.
+    const objArr2 = dogs.map(dog => ({name: dog.name, age: dog.age}));
+
+    // TODO: using filter, create a new array containing only dogs younger than 10 years old
+    // TODO: using filter, create a new array containing only dogs named 'lexie'
+    // TODO: using filter, create a new array containing only dogs that are trained and younger than 10
+    const youngDogs = dogs.filter(dog => dog.age < 10);
+    const youngDogs1 = dogs.filter(({ age }) => age < 10);
+    const lexieDog = dogs.filter(dog => dog.name === 'lexie');
+    const lexieDog1 = dogs.filter(({ name }) => name === 'lexie');
+    const trainedYoungDogs = dogs.filter(dog => dog.age < 10 && dog.isTrained === true);
+    const trainedYoungDogs1 = dogs.filter(dog => dog.age < 10 && dog.isTrained);
+    const trainedYoungDogs2 = dogs.filter(({ age, isTrained }) => age < 10 && isTrained === true);
+    const trainedYoungDogs3 = dogs.filter(({ age, isTrained }) => age < 10 && isTrained);
+</script>
+</body>
+</html>
