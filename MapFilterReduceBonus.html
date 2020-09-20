@@ -74,31 +74,71 @@
             },
         ];
         // Use map, filter, and reduce to:
-        // Create an array of the first letters of each fruit
-        // Create array of user objects based on the customers array of objects (each user object should just have name and age properties)
-        // Create an array of civil servant customers (teachers and police officers) containing the same properties as the objects on the customers objects
-        // Determine the average age of all the customers
-        // Create a function makeSuperPet() that takes in the pets array as input and returns a single pet object with the following shape...
+        // 1 Create an array of the first letters of each fruit
+        const firstLetterArr = fruits.map(fruit => fruit.charAt(0));
+        // 2 Create array of user objects based on the customers array of objects (each user object should just have name and age properties)
+        const userObjArr = customers.map(({ name,age }) => ({name,age}));
+        // 3 Create an array of civil servant customers (teachers and police officers) containing the same properties as the objects on the customers objects
+        const civilServantCustomers = customers.filter(customer => customer.occupation !== 'Librarian');
+        const civilServantCustomers1 = customers.filter(({ occupation }) => occupation === 'Police Officer' || occupation === 'Teacher');
+        // 4 Determine the average age of all the customers
+        const averageAge = customers.reduce((acc, customer) => acc + customer.age, 0) / customers.length;
+        // 5 Create a function makeSuperPet() that takes in the pets array as input and returns a single pet object with the following shape...
         // {
         //     name: ALL_PET_NAMES_CONCATENATED_INTO_A_SINGLE_STRING,
         //         age: THE_TOTAL_OF_ALL_PET_AGES,
         //     breed: THE_FIRST_LETTERS_OF_ALL_PET_BREEDS_CONCATENATATED_INTO_A_SINGLE_STRING
         // }
-        // Create a function that takes in an array of pets and returns an array of the length of first names for pugs only. Your output for the given input should be [3, 6] for 'Bud' and 'Bowser'
-        // Create a function getFemaleFamilyMembers() that when given the family variable as an argument, returns an array of female family member names
-        // Create a function makeLongPetString() that when given the variable of pets, returns a string of all property values with dashes separating each property value
-        // Create a function that when given an array of first names, returns an array of the same names with a last name of Smith
-
+        function makeSuperPet(arr) {
+            const name = arr.reduce((acc, cur) => `${acc}${cur.name.charAt(0)}`, '');
+            const age = arr.reduce((acc, cur) => acc + cur.age, 0);
+            const breed = arr.reduce((acc, cur) => `${acc}${cur.breed.charAt(0)}`, '');
+            return {
+                name,
+                age,
+                breed
+            };
+        }
+        // 6 Create a function that takes in an array of pets and returns an array of the length of first names for pugs only. Your output for the given input should be [3, 6] for 'Bud' and 'Bowser'
+         function pugNameLength(arr) {
+            return arr.filter(ele => ele.breed === 'Pug').map(ele => ele.name.length);
+         }
+        // 7 Create a function getFemaleFamilyMembers() that when given the family variable as an argument, returns an array of female family member names
+        function getFemaleFamilyMembers(arr) {
+            return arr.filter(ele => ele.gender === 'female').map(ele => ele.name);
+        }
+        // 8 Create a function makeLongPetString() that when given the variable of pets, returns a string of all property values with dashes separating each property value
+        function makeLongPetString(arr) {
+            return arr.reduce((acc, { name, age, breed }) => `${acc}-${name}-${age}-${breed}`, '').slice(1);
+        }
+        // 9 Create a function that when given an array of first names, returns an array of the same names with a last name of Smith
 // input = ['Sally', 'Fred', 'Steve']
 // output = ['Sally Smith', 'Fred Smith', 'Steve']
-//         Create a function that when given an array of numbers, return the sum of the even numbers
-//         Create a function that when given an array of numbers, return the sum of all numbers evenly divisible by 10
-//         Create a function that when given an array of names, return a string of all the first letters of each name
-//         Create a function that when given an array of values, returns an array of only the truthy values
-//         Create a function that when given an object, returns the property values as an array of elements
-//         Create a function that when given an object, returns the property values as an array of elements
-//         Create a function that when given three arguments: a min num, a max num, an array of nums will return the array of nums that are only between the min and max values, inclusive
-//         Create a function that when given an array of strings, returns an array of objects with properties for the given string value and the length of the string and the string without vowels (not including y)
+        function lNameSmith(arr) {
+            return arr.map(ele => `${ele} Smith`);
+        }
+//         10 Create a function that when given an array of numbers, return the sum of the even numbers
+        function evenNumSum(arr) {
+            return arr.filter(ele => ele % 2 === 0).reduce((acc, cur) => acc + cur);
+        }
+//         11 Create a function that when given an array of numbers, return the sum of all numbers evenly divisible by 10
+        function tenDivisibleSum(arr) {
+            return arr.reduce((acc, cur) => {
+                if (cur % 10 === 0) return acc + cur;
+                else return acc;
+            }, 0)
+            arr.reduce((acc, cur) => {
+                console.log(acc, cur);
+                return cur % 10 === 0 ? acc + cur : acc;
+            }, 0)
+            arr.reduce((acc, cur) => cur % 10 === 0 ? acc + cur : acc, 0)
+        }
+//         12 Create a function that when given an array of names, return a string of all the first letters of each name
+//         13 Create a function that when given an array of values, returns an array of only the truthy values
+//         14 Create a function that when given an object, returns the property values as an array of elements
+//         15 Create a function that when given an object, returns the property values as an array of elements
+//         16 Create a function that when given three arguments: a min num, a max num, an array of nums will return the array of nums that are only between the min and max values, inclusive
+//         17 Create a function that when given an array of strings, returns an array of objects with properties for the given string value and the length of the string and the string without vowels (not including y)
 //         Given the following:
 
         const users = [
