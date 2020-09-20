@@ -46,10 +46,11 @@
 // Bonus
 // Use .reduce to get the unique list of languages from the list of users.
 
-    const threeLanguageUsers = users.filter(user => user.languages.length >= 3);
+    const moreLanguageUsers = users.filter(user => user.languages.length >= 3);
     const emailListArray = users.map(user => user.email);
     const totalYears = users.reduce((total, user) => total + user.yearsOfExperience, 0);
 
+    const longestEmail4 = users.reduce((longestEmail, {email}) => (email.length > longestEmail.length) ? email : longestEmail, '');
     const longestEmail = users.reduce((acc, user) => {
         if (acc <= user.email.length) acc = user.email.length;
         return acc;
@@ -67,6 +68,7 @@
         .concat('.');
     const userList1 = users.reduce((acc, user) => acc + `${user.name}, `, 'Your instructors are: ').slice(0, -2).concat('.');
     const userList2 = users.reduce((acc, {name}) => acc + `${name}, `, 'Your instructors are: ').slice(0, -2).concat('.');
+    const instructors = users.reduce((message, { name }) => `${message} ${name},`, 'Your instructors are:').slice(0, -1).concat(".");
 
     const languageArr = users.reduce((acc, user) => {
         return acc + `${user.languages.toString()},`;
@@ -82,15 +84,30 @@
 
     //["clojure", "javascript", "java", "scala", "php", "javascript", "bash", "java", "php", "sql", "html", "css", "javascript", "php"]
 
-    const languageArr1 = users.reduce((acc, { languages }) => {
-        console.log(acc, languages);
+    const languageArr1 = users.reduce((acc, {languages}) => {
+        // return acc + languages; // a string, needs to split
         return acc.concat(languages);
     }, [])
-        .flat(5)
         .reduce((acc, ele) => {
             if (!acc.includes(ele)) acc.push(ele);
             return acc;
         }, [])
         .join()
 
+    const languageArr2 = users
+        .reduce((acc, {languages}) => acc.concat(languages), [])
+        .reduce((acc, ele) => {
+            !acc.includes(ele) ? acc.push(ele) : acc;
+            return acc;
+        }, [])
+        .join()
+
+    const languageArr3 = users
+        .reduce((acc, {languages}) => {acc.push(...languages); return acc}, [])
+        .reduce((acc, ele) =>  {acc.includes(ele) ? acc : acc.push(ele); return acc;}, []);
+
+    const languageArr4 = users
+        .map(({languages}) => languages)
+        .flat()
+        .filter((ele, i, arr) => arr.indexOf(ele) === i);
 }
