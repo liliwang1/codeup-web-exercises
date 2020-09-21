@@ -77,10 +77,10 @@
         // 1 Create an array of the first letters of each fruit
         const firstLetterArr = fruits.map(fruit => fruit.charAt(0));
         // 2 Create array of user objects based on the customers array of objects (each user object should just have name and age properties)
-        const userObjArr = customers.map(({ name,age }) => ({name,age}));
+        const userObjArr = customers.map(({name, age}) => ({name, age}));
         // 3 Create an array of civil servant customers (teachers and police officers) containing the same properties as the objects on the customers objects
         const civilServantCustomers = customers.filter(customer => customer.occupation !== 'Librarian');
-        const civilServantCustomers1 = customers.filter(({ occupation }) => occupation === 'Police Officer' || occupation === 'Teacher');
+        const civilServantCustomers1 = customers.filter(({occupation}) => occupation === 'Police Officer' || occupation === 'Teacher');
         // 4 Determine the average age of all the customers
         const averageAge = customers.reduce((acc, customer) => acc + customer.age, 0) / customers.length;
         // 5 Create a function makeSuperPet() that takes in the pets array as input and returns a single pet object with the following shape...
@@ -99,48 +99,140 @@
                 breed
             };
         }
+
         // 6 Create a function that takes in an array of pets and returns an array of the length of first names for pugs only. Your output for the given input should be [3, 6] for 'Bud' and 'Bowser'
-         function pugNameLength(arr) {
+        function pugNameLength(arr) {
             return arr.filter(ele => ele.breed === 'Pug').map(ele => ele.name.length);
-         }
+        }
+
         // 7 Create a function getFemaleFamilyMembers() that when given the family variable as an argument, returns an array of female family member names
         function getFemaleFamilyMembers(arr) {
             return arr.filter(ele => ele.gender === 'female').map(ele => ele.name);
         }
+
         // 8 Create a function makeLongPetString() that when given the variable of pets, returns a string of all property values with dashes separating each property value
         function makeLongPetString(arr) {
-            return arr.reduce((acc, { name, age, breed }) => `${acc}-${name}-${age}-${breed}`, '').slice(1);
+            return arr.reduce((acc, {name, age, breed}) => `${acc}-${name}-${age}-${breed}`, '').slice(1);
         }
+
         // 9 Create a function that when given an array of first names, returns an array of the same names with a last name of Smith
 // input = ['Sally', 'Fred', 'Steve']
 // output = ['Sally Smith', 'Fred Smith', 'Steve']
         function lNameSmith(arr) {
             return arr.map(ele => `${ele} Smith`);
         }
+
 //         10 Create a function that when given an array of numbers, return the sum of the even numbers
         function evenNumSum(arr) {
             return arr.filter(ele => ele % 2 === 0).reduce((acc, cur) => acc + cur);
         }
+
 //         11 Create a function that when given an array of numbers, return the sum of all numbers evenly divisible by 10
         function tenDivisibleSum(arr) {
-            return arr.reduce((acc, cur) => {
-                if (cur % 10 === 0) return acc + cur;
-                else return acc;
-            }, 0)
-            arr.reduce((acc, cur) => {
-                console.log(acc, cur);
-                return cur % 10 === 0 ? acc + cur : acc;
-            }, 0)
-            arr.reduce((acc, cur) => cur % 10 === 0 ? acc + cur : acc, 0)
+            // arr.reduce((acc, cur) => {
+            //     if (cur % 10 === 0) return acc + cur;
+            //     else return acc;
+            // }, 0)
+            // arr.reduce((acc, cur) => {
+            //     console.log(acc, cur);
+            //     return cur % 10 === 0 ? acc + cur : acc;
+            // }, 0)
+            return arr.reduce((acc, cur) => cur % 10 === 0 ? acc + cur : acc, 0)
         }
-//         12 Create a function that when given an array of names, return a string of all the first letters of each name
-//         13 Create a function that when given an array of values, returns an array of only the truthy values
-//         14 Create a function that when given an object, returns the property values as an array of elements
-//         15 Create a function that when given an object, returns the property values as an array of elements
-//         16 Create a function that when given three arguments: a min num, a max num, an array of nums will return the array of nums that are only between the min and max values, inclusive
-//         17 Create a function that when given an array of strings, returns an array of objects with properties for the given string value and the length of the string and the string without vowels (not including y)
-//         Given the following:
 
+//         12 Create a function that when given an array of names, return a string of all the first letters of each name
+        function nameFistLetter(arr) {
+            return arr.reduce((acc, cur) => `${acc}${cur.charAt(0)}`, '')
+        }
+
+//         13 Create a function that when given an array of values, returns an array of only the truthy values
+        function truthyValues(arr) {
+            return arr.filter(ele => ele);
+            // arr.filter(ele => !!ele);
+            // arr.reduce((acc, cur) => cur ? acc.concat(cur) : acc, []);
+        }
+
+//         14 Create a function that when given an object, returns the property values as an array of elements
+        function valueArr(obj) {
+            return Object.values(obj);
+        }
+
+        function valueArr1(obj) {
+            return Object.keys(obj).map(ele => obj[ele]);
+        }
+
+//         15 Create a function that when given an object, returns the property names as an array of elements
+        function propArr(obj) {
+            return Object.keys(obj);
+        }
+
+        function propArr1(obj) {
+            let result = [];
+            for (prop in obj) {
+                result.push(prop);
+            }
+            return result;
+        }
+
+        function propArr2(obj) {
+            let result = [];
+            for (let prop in obj) {
+                result.push(prop);
+            }
+            return result;
+        }
+
+        function propArr3(obj) {
+            let result = [];
+            for (let key in obj) {
+                result.push(key);
+            }
+            return result;
+        }
+
+//         16 Create a function that when given three arguments: a min num, a max num, an array of nums will return the array of nums that are only between the min and max values, inclusive
+        function numArr(minNum, maxNum, arr) {
+            return arr.filter(ele => ele >= minNum && ele <= maxNum);
+        }
+
+//         17 Create a function that when given an array of strings, returns an array of objects with properties for the given string value and the length of the string and the string without vowels (not including y)
+        function newObj(arr) {
+            return arr.map(ele => {
+                let newObj = {};
+                newObj.value = ele;
+                newObj.length = ele.length;
+                newObj.withoutVowels = ele.replace(/(a|e|i|o|u)/gi, '');
+                return newObj;
+            })
+        }
+
+        function newObj1(arr) {
+            return arr.reduce((acc, ele) => {
+                acc.push({
+                    value: ele,
+                    length: ele.length,
+                    withoutVowels: ele.replace(/(a|e|i|o|u)/gi, '')
+                });
+                return acc;
+            }, [])
+        }
+
+        function newObj2(arr) {
+            return arr.reduce((acc, ele) => {
+                return acc.concat({
+                    value: ele,
+                    length: ele.length,
+                    withoutVowels: ele.replace(/(a|e|i|o|u)/gi, '')
+                });
+            }, [])
+            // arr.reduce((acc, ele) => acc.concat({
+            //     value: ele,
+            //     length: ele.length,
+            //     withoutVowels: ele.replace(/(a|e|i|o|u)/gi, '')
+            // }), []);
+        }
+
+//         Given the following:
         const users = [
             {
                 id: 1,
@@ -174,31 +266,41 @@
             },
         ];
         // Use .reduce to transform the array into an object where the object's keys are ids and the values are objects that represent each user
+        const newObj = users.reduce((acc, { id, name, email, languages }) => {
+            acc[id] = {name, email, languages};
+            return acc;
+        }, {})
         // Use .reduce to get a unique list of the languages the codeup instructors know
         // From https://glitch.com/edit/#!/map-filter-reduce-practice
 
         /**
          * HINT: solve the map/filter/reduce problem with a foreach first
          */
-
 // Reduce Problem #1
 // given an array of names, use .reduce to produce a single string that contains everyone's name
         var names = ["Ben", "Jafar", "Matt", "Priya", "Brian"];
-
+        const nameStr = names.reduce((acc, cur) => acc + cur);
+        const nameStr1 = names.reduce((acc, cur) => acc + cur, '');
+        const nameStr2 = names.reduce((acc, cur) => `${acc}${cur}`, '');
+        const nameStr3 = names.reduce((acc, cur) => `${acc}${cur}`);
+            var nameStr4 = '';
+        names.forEach(name => nameStr4 += name)
 // Reduce Problem #2: Sum up all of the numbers in the following array using .reduce
         let numbers = [1, 2, 3, 99, 1, -3, 1000, 0, 33, -67];
-
+        const sum = numbers.reduce((acc, cur) => acc + cur);
 // Reduce Problem #3:
 // Given the above array of numbers, write the .reduce necessary to determine the highest number of the array.
-
+        const highestNum = numbers.reduce((acc, cur) => acc >= cur ? acc : cur);
+        const highestNum1 = Math.max.apply('e', numbers);
 // Reduce problem #4:
 // Given the above array of numbers, write the .reduce necessary to determine the lowest number of the array.
-
+        const lowestNum = numbers.reduce((acc, cur) => acc <= cur ? acc : cur);
 // Reduce problem #5:
 // Given the array [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], use .reduce to determine the average of all the numbers
-
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const averageNum = arr.reduce((acc, cur) => acc + cur) / arr.length;
 // Reduce problem #6, given the array of numbers from above, determine the average of all numbers
-
+        const averageNum2 = numbers.reduce((acc, cur) => acc + cur) / numbers.length;
 
 // Mapping problem #3
 // Using .map to make a Projection
@@ -212,6 +314,9 @@
         *  etc...
         * ];
         */
+
+        const idAndTitleColleciton1 = newReleases.map(ele => ({"id":ele.id, "title":ele.title}));
+        const idAndTitleColleciton = newReleases.map(({ id, title }) => ({id, title}));
 
         var newReleases = [
             {
@@ -252,23 +357,32 @@
 // Challenge:
 // Define a function named allIndexesOf that takes in two arguments. The first argument should be the array to search and the second argument should be the value you want to search for. If the item does not exist in the provided array, return an empty array;
 // Recommend using .filter or .reduce inside of your allIndexesOf function to find the index.
-// HINT: If you know your output will be an array, use an empty array as your intitial value
+// HINT: If you know your output will be an array, use an empty array as your initial value
 // Given:
 // allIndexesOf(fruits, "apple") should return the array [0, 3]
 // allIndexesOf(fruits, "guava") should return the array []
 // allIndexesOf(fruits, "pineapple") should return [4]
         var fruits = ["apple", "banana", "orange", "apple", "pineapple"];
 
+        function allIndexesOf(arr, value) {
+            return arr.reduce((acc, ele, i) => ele === value ? acc.concat(i) : acc, []);
+        }
+        function allIndexesOf1(arr, value) {
+            return arr.map((e, i) => e === value ? i : -1).filter(ele => ele !== -1);
+        }
 
 // Challenge:
 // Define a function named removeAll(array, value) that takes in two arguments. The first argument should be an array and the second argument should be a value you wish to
-
 // Given:
         var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "reference error", "type error"];
 
+        function removeAll(arr, value) {
+            return arr.filter(ele => ele !== value);
+        }
 // removeAll(bugs, "ant") should return ["mosquito", "scorpion", "mosquito", "typo", "reference error", "type error"]
 // removeAll(bugs, "mosquito") should return ["ant", "scorpion", "ant", "ant", "typo", "reference error", "type error"]
-// removeAll(bugs, "roach") should return the original array b/c "roach" has no occurrances.
+// removeAll(bugs, "roach") should return the original array b/c "roach" has no occurrences.
+
         const fruits = ["cantaloupe", "orange", "date", "elderberry", "ugli fruit", "pineapple"];
         const customers = [
             {
@@ -293,6 +407,7 @@
 
 // PROBLEM 1 - create an array of the first letters of each fruit
         //HINT: use .map()
+        const firstLetterFruits = fruits.map(ele => ele.charAt(0));
 // PROBLEM 2 - create array of user objects based on the customers array of
         //objects (each user object should just have name and age properties)
         //HINT: use .map()
@@ -304,23 +419,28 @@
         //HINT: use .reduce()
 
         /* ---------------------------------------------------------------------- */
-
         // Given the following array...
         const names = ["John", "Max", "Ronald"];
-
         // complete the bonuses below...
         // - Create an array where all names are given a last name of Smith.
+        const newArr = names.map(ele => `${ele} Smith`);
         // - Create an array where each word is in all caps
+        const newArr1 = names.map(ele => ele.toUpperCase());
         // - Create an array where all names have more than 3 letters
+        const newArr2 = names.filter(ele => ele.length > 3);
         // - Create an array of names with only the last two letters of each name
+        const newArr3 = names.map(ele => ele.slice(-2));
         // - Create a total count of all letters
+        const newArr4 = names.reduce((acc, cur) => acc + cur.length, 0);
         // - Create a string of all letters in alphabetical order
+        const newStr = names.reduce((acc, cur) => acc + cur).toLowerCase().split('').sort().join('');
         // - Create an array of word objects with properties of wordLength, firstLetter, lastLetter
+        const newArr5 = names.map(ele => ({wordLength:ele.length, firstLetter:ele.charAt(0), lastLetter:ele.slice(-1)}));
         // - Create a string of all vowels in the entire array of names
-        // - Create a single object with properties
+        const newStr1 = names.reduce((acc, cur) => acc + cur).replace(/[^aeiou]/gi, '');
+        // - Create a single object with properties ???
 
         /* ---------------------------------------------------------------------- */
-
         // Given the following array...
         const family = [
             {
@@ -339,14 +459,26 @@
                 age: 32,
             },
         ];
-
         // complete the bonuses below...
         // - Calculate the average age of family members
+        const averageAge = family.reduce((acc, { age }) => acc + age, 0) / family.length;
         // - Create an array of family objects without the age property
+        const familyObj = family.map(({ name, gender }) => ({name, gender}));
+        const familyObj1 = family.map(e => ({name:e.name, gender:e.gender}));
         // - Create an array of all minors
+        const minors = family.filter(ele => ele.age <= 18);
         // - Calculate the total age combined of family members
+        const totalAge = family.reduce((acc, cur) => acc + cur.age, 0);
         // - Create an array of only female family member objects
+        const femaleFamily = family.filter(ele => ele.gender === "female");
+        const femaleFamily1 = family.filter(({ gender }) => gender === "female");
         // - Create a single object with properties containing arrays of all names, genders, and ages
+        const familyObject = family.reduce((acc, cur) => {
+            acc.names.push(cur.name);
+            acc.genders.push(cur.gender);
+            acc.ages.push(cur.age);
+            return acc;
+        }, {names:[], genders:[], ages:[]});
     }
 </script>
 </body>
