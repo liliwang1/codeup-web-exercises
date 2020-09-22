@@ -266,7 +266,7 @@
             },
         ];
         // Use .reduce to transform the array into an object where the object's keys are ids and the values are objects that represent each user
-        const newObj = users.reduce((acc, { id, name, email, languages }) => {
+        const newObj = users.reduce((acc, {id, name, email, languages}) => {
             acc[id] = {name, email, languages};
             return acc;
         }, {})
@@ -283,7 +283,7 @@
         const nameStr1 = names.reduce((acc, cur) => acc + cur, '');
         const nameStr2 = names.reduce((acc, cur) => `${acc}${cur}`, '');
         const nameStr3 = names.reduce((acc, cur) => `${acc}${cur}`);
-            var nameStr4 = '';
+        var nameStr4 = '';
         names.forEach(name => nameStr4 += name)
 // Reduce Problem #2: Sum up all of the numbers in the following array using .reduce
         let numbers = [1, 2, 3, 99, 1, -3, 1000, 0, 33, -67];
@@ -315,8 +315,8 @@
         * ];
         */
 
-        const idAndTitleColleciton1 = newReleases.map(ele => ({"id":ele.id, "title":ele.title}));
-        const idAndTitleColleciton = newReleases.map(({ id, title }) => ({id, title}));
+        const idAndTitleColleciton1 = newReleases.map(ele => ({"id": ele.id, "title": ele.title}));
+        const idAndTitleColleciton = newReleases.map(({id, title}) => ({id, title}));
 
         var newReleases = [
             {
@@ -367,6 +367,7 @@
         function allIndexesOf(arr, value) {
             return arr.reduce((acc, ele, i) => ele === value ? acc.concat(i) : acc, []);
         }
+
         function allIndexesOf1(arr, value) {
             return arr.map((e, i) => e === value ? i : -1).filter(ele => ele !== -1);
         }
@@ -379,6 +380,7 @@
         function removeAll(arr, value) {
             return arr.filter(ele => ele !== value);
         }
+
 // removeAll(bugs, "ant") should return ["mosquito", "scorpion", "mosquito", "typo", "reference error", "type error"]
 // removeAll(bugs, "mosquito") should return ["ant", "scorpion", "ant", "ant", "typo", "reference error", "type error"]
 // removeAll(bugs, "roach") should return the original array b/c "roach" has no occurrences.
@@ -435,7 +437,11 @@
         // - Create a string of all letters in alphabetical order
         const newStr = names.reduce((acc, cur) => acc + cur).toLowerCase().split('').sort().join('');
         // - Create an array of word objects with properties of wordLength, firstLetter, lastLetter
-        const newArr5 = names.map(ele => ({wordLength:ele.length, firstLetter:ele.charAt(0), lastLetter:ele.slice(-1)}));
+        const newArr5 = names.map(ele => ({
+            wordLength: ele.length,
+            firstLetter: ele.charAt(0),
+            lastLetter: ele.slice(-1)
+        }));
         // - Create a string of all vowels in the entire array of names
         const newStr1 = names.reduce((acc, cur) => acc + cur).replace(/[^aeiou]/gi, '');
         // - Create a single object with properties ???
@@ -461,24 +467,24 @@
         ];
         // complete the bonuses below...
         // - Calculate the average age of family members
-        const averageAge = family.reduce((acc, { age }) => acc + age, 0) / family.length;
+        const averageAge = family.reduce((acc, {age}) => acc + age, 0) / family.length;
         // - Create an array of family objects without the age property
-        const familyObj = family.map(({ name, gender }) => ({name, gender}));
-        const familyObj1 = family.map(e => ({name:e.name, gender:e.gender}));
+        const familyObj = family.map(({name, gender}) => ({name, gender}));
+        const familyObj1 = family.map(e => ({name: e.name, gender: e.gender}));
         // - Create an array of all minors
         const minors = family.filter(ele => ele.age <= 18);
         // - Calculate the total age combined of family members
         const totalAge = family.reduce((acc, cur) => acc + cur.age, 0);
         // - Create an array of only female family member objects
         const femaleFamily = family.filter(ele => ele.gender === "female");
-        const femaleFamily1 = family.filter(({ gender }) => gender === "female");
+        const femaleFamily1 = family.filter(({gender}) => gender === "female");
         // - Create a single object with properties containing arrays of all names, genders, and ages
         const familyObject = family.reduce((acc, cur) => {
             acc.names.push(cur.name);
             acc.genders.push(cur.gender);
             acc.ages.push(cur.age);
             return acc;
-        }, {names:[], genders:[], ages:[]});
+        }, {names: [], genders: [], ages: []});
     }
 </script>
 </body>
