@@ -4,7 +4,7 @@ let getDataLastCommit = (user) => {
         .then(res => res.json())
         .then(data => data.filter(event => event.type === "PushEvent"))
         .then(event => event[0].created_at)
-        .catch(err => console.log(err));
+        .catch(err => console.error(err));
 }
 
 console.log(getDataLastCommit('liliwang1'));
